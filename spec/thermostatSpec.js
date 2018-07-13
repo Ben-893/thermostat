@@ -4,7 +4,7 @@
 describe('Thermostat', function() {
 
   var thermostat;
-  
+
 
 
   beforeEach(function() {
@@ -43,7 +43,6 @@ describe('PSM on', function(){
     it('throws an error when higher than max temp', function() {
       for(var i = 0; i < 5; i++) {
         thermostat.increase()
-        console.log(thermostat);
       };
 
       expect(function() { thermostat.increase(); }).toThrow(new Error('Temperature already at maximum'));
@@ -65,6 +64,33 @@ describe('PSM on', function(){
   it('PSM on by default', function() {
     expect(thermostat.powerSavingMode).toEqual(true);
   });
+
+  it('has a reset temperature button', function() {
+    thermostat.increase()
+    thermostat.reset()
+    expect(thermostat.temperature).toEqual(20)
+  });
+  it('When the temperature is 18 or below, display low-usage', function() {
+      for(var i = 0; i < 2; i++) {
+        thermostat.decrease()
+      };
+      expect(thermostat.usage()).toEqual('low-usage')
+  });
+  it('When temperature is 25 or below, display medium-usage', function() {
+      for(var i = 0; i < 2; i++) {
+        thermostat.increase()
+      };
+      expect(thermostat.usage()).toEqual('medium-usage')
+  });
+  it('When the temperature is higher than 25, display high-usage', function() {
+    thermostat.powerSavingModeOff()
+    for(var i = 0; i < 6; i++) {
+      thermostat.increase()
+      };
+      expect(thermostat.usage()).toEqual('high-usage')
+  });
+
+
 
 });
 
