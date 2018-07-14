@@ -1,6 +1,10 @@
 # Thermostat
 This is a thermostat app made in Javascript.
 
+#To Run
+
+To use, open terminal and enter
+`$ open thermostat.html`
 
 # Challenge
 
