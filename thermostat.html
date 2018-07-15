@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   <title>Interactive Thermostat</title>
 
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="src/thermostat.js"></script>
-
+  <script src="src/interface.js"></script>
+  <link rel="stylesheet" type="text/css" href="public/thermostat.css"/>
 
 </head>
 
 <body>
-<h1>20 Degrees Celsius</h1>
+<h1 id="temperature" class="medium-usage" >20 </h1> 
+<h1>Degrees Celsius</h1>
 <h2>Medium</h2>
+<h3>Power Saving Mode:</h3>
+<p id="power-saving"> </p>
 
 <button id="plus" type="button">+</button>
 <button id="minus" type="button">-</button>

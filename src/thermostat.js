@@ -52,4 +52,5 @@ Thermostat.prototype.usage = function() {
 
    } else {
    return 'high-usage' }
+
 };
